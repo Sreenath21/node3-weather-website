@@ -10,18 +10,16 @@ weatherForm.addEventListener("submit", (e) => {
   if (!location) {
     alert("You must provide an address");
   } else {
-    fetch(`http://localhost:3000/weather?address=${location}`).then(
-      (response) => {
-        response.json().then((data) => {
-          if (data.error) {
-            messageOne.textContent = data.error;
-            messagetwo.textContent = "";
-          } else {
-            messageOne.textContent = data.location;
-            messagetwo.textContent = data.forecast;
-          }
-        });
-      }
-    );
+    fetch(`/weather?address=${location}`).then((response) => {
+      response.json().then((data) => {
+        if (data.error) {
+          messageOne.textContent = data.error;
+          messagetwo.textContent = "";
+        } else {
+          messageOne.textContent = data.location;
+          messagetwo.textContent = data.forecast;
+        }
+      });
+    });
   }
 });
