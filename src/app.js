@@ -74,8 +74,7 @@ app.get("/weather", (req, res) => {
           });
         }
         return res.send({
-          forecast: forecastData.weather_descriptions[0],
-          temperature: forecastData.temperature,
+          forecast: forecastData,
           location,
           address: req.query.address,
         });

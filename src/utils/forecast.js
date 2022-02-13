@@ -10,12 +10,12 @@ const forecast = (lat, lng, callback) => {
       callback("Please provide proper geocode data");
     } else {
       const { current } = body;
-      // callback(
-      //   undefined,
-      //   `Current weather is ${current.weather_descriptions[0]}. It is ${current.temperature} degree out but it feels like ${current.feelslike} degree out`
-      // );
+      callback(
+        undefined,
+        `Current weather is ${current.weather_descriptions[0]}. It is ${current.temperature} degree out but it feels like ${current.feelslike} degree out and humidity is ${current.humidity}`
+      );
 
-      callback(undefined, current);
+      // callback(undefined, current);
     }
   });
 };
